@@ -1,0 +1,53 @@
+{
+    "role": "WereWolfPlayer",
+    "user_objective": "As a player in the Werewolf game, the objective varies based on the assigned role. Villagers aim to identify and eliminate werewolves while surviving. Werewolves must deceive others and eliminate villagers without getting caught. The Seer has the ability to reveal the true identity of a player each night and assist in strategic voting. The Witch can use potions to either save a targeted player or eliminate another. The Hunter has the power to take down one player upon death, and the Guardian can protect a player from being eliminated each night. Every role plays a crucial part in influencing the game's outcome through strategic decision-making, deception, and collaboration.",
+    "builder_objective": "Assist the player in strategic reasoning, deception, deduction, and role-based decision-making.",
+    "domain": "Social deduction game",
+    "intro": "A general configuration for any player participating in the Werewolf game, incorporating the various role objectives into one adaptable strategy.",
+    "task_docs": [{
+        "source": "https://help.wolfy.net/en/article/detailed-overview-of-roles-x8rylu/",
+        "num": 20
+    }
+    ],
+    "rag_docs": [
+    {
+        "source": "https://arxiv.org/html/2408.17177v1",
+        "num": 20
+    }, 
+    {
+        "source": "https://www.ninsheetmusic.org/forum/index.php?topic=9584.0",
+        "num": 20
+    }, 
+    {
+        "source": "https://help.wolfy.net/en/article/playing-the-witch-2ow8gw/",
+        "num": 20
+    }, 
+    {
+        "source": "https://help.wolfy.net/en/article/playing-the-guard-1ud3gkx/",
+        "num": 20
+    },
+    {
+        "source": "https://help.wolfy.net/en/article/playing-the-hunter-177fdg9/",
+        "num": 20
+    }, 
+    {
+        "source": "https://help.wolfy.net/en/article/playing-the-villager-112ws0b/",
+        "num": 20
+    }, 
+    {
+        "source": "https://help.wolfy.net/en/article/playing-the-werewolf-3w2rq6/",
+        "num": 20
+    },
+    {
+        "source": "https://help.wolfy.net/en/article/playing-the-seer-2krl4f/",
+        "num": 20
+    }
+    ],
+    "workers": [
+        {"id": "9aa47724-0b77-4752-9528-cf4b06a46915", "name": "FaissRAGWorker", "path": "faiss_rag_worker.py"},
+        {"id": "26bb6634-3bee-417d-ad75-23269ac17bc3", "name": "MessageWorker", "path": "message_worker.py"},
+        {"id": "9c15af81-04b3-443e-be04-a3522124b905", "name": "SearchWorker", "path": "search_worker.py"},
+        {"id": "b06c2b58-12c5-41fe-9838-e93b530e42e8", "name": "DefaultWorker", "path": "default_worker.py"}
+    ],
+    "tools": []
+}

@@ -8,6 +8,10 @@
 
 Arklex Agent First Organization provides a framework for developing **AI Agents** to complete complex tasks powered by LLMs. The framework is designed to be modular and extensible, allowing developers to customize workers/tools that can interact with each other in a variety of ways under the supervision of the orchestrator managed by *Taskgraph*. 
 
+## Customization
+
+I customize the configuration file and build a general agent player for the *WereWolf* game. 
+
 ## 📖 Documentation
 
 Please see [here](https://www.arklex.ai/qa/open-source) for full documentation, which includes:
@@ -52,10 +56,10 @@ Watch the tutorial on [YouTube](https://youtu.be/y1P2Ethvy0I) to learn how to bu
 
 **📊 1. Create Taskgraph and Initialize Worker**
 
-> **:bulb:** The following `--output-dir`, `--input-dir` and `--documents_dir` can be the same directory to save the generated files and the chatbot will use the generated files to run. E.g `--output-dir ./example/customer_service`. The following commands take *customer_service* chatbot as an example.
+> **:bulb:** The following `--output-dir`, `--input-dir` and `--documents_dir` can be the same directory to save the generated files and the chatbot will use the generated files to run. E.g `--output-dir ./example/WereWolf`. The following commands take *WereWolf* chatbot as an example.
 
 ```
-python create.py --config ./examples/customer_service_config.json --output-dir ./examples/customer_service
+python create.py --config ./examples/WereWolf/player.json --output-dir ./examples/WereWolf
 ```
 
 * Fields:
@@ -70,7 +74,7 @@ python create.py --config ./examples/customer_service_config.json --output-dir .
 
 **💬 2. Start Chatting**
 ```
-python run.py --input-dir ./examples/customer_service
+python run.py --input-dir ./examples/WereWolf
 ```
 
 * Fields:
@@ -83,7 +87,6 @@ python run.py --input-dir ./examples/customer_service
       - `gemini-2.0-flash-exp`
       - `claude-3-haiku-20240307`
   
-
 * It will first automatically start the nluapi and slotapi services through `start_apis()` function. By default, this will start the `NLUModelAPI ` and `SlotFillModelAPI` services defined under `./arklex/orchestrator/NLU/api.py` file. You could customize the function based on the nlu and slot models you trained.
 * Then it will start the agent and you could chat with the agent
 
@@ -93,7 +96,7 @@ python run.py --input-dir ./examples/customer_service
 
   * First, create api for the previous chatbot you built. It will start an api on the default port 8000.
     ```
-    python model_api.py  --input-dir ./examples/customer_service
+    python model_api.py  --input-dir ./examples/WereWolf
     ```
 
     * Fields:
@@ -105,9 +108,9 @@ python run.py --input-dir ./examples/customer_service
     ```
     python eval.py \
     --model_api http://127.0.0.1:8000/eval/chat \
-    --config ./examples/customer_service_config.json \
-    --documents_dir ./examples/customer_service \
-    --output-dir ./examples/customer_service
+    --config ./examples/WereWolf/player.json \
+    --documents_dir ./examples/WereWolf \
+    --output-dir ./examples/WereWolf
     ```
     * Fields:
       * `--model_api`: The api url that you created in the previous step
@@ -118,5 +121,6 @@ python run.py --input-dir ./examples/customer_service
       * `--num_goals`: Number of goals/tasks to simulate. Default is 5.
       * `--max_turns`: Maximum number of turns per conversation. Default is 5.
       * `--model`: The openai model type used to synthesize user's utterance. Default is `gpt-4o`. You could change it to other models like `gpt-4o-mini`.
-  
+    
+    
     📄 For more details, check out the [Evaluation README](https://github.com/arklexai/Agent-First-Organization/blob/main/arklex/evaluation/README.md).

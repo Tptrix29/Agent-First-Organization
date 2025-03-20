@@ -1,0 +1,83 @@
+[
+    {
+        "task_name": "Provide detailed role information and strategy guidance for the user's assigned role",
+        "steps": [
+            "Ask the user for their assigned role in the game using the MessageWorker.",
+            "Use the FaissRAGWorker to retrieve detailed information and strategy guidance for the user's specified role from internal documentation.",
+            "Deliver the retrieved role information and strategy guidance to the user using the MessageWorker.",
+            "Ask the user if they need further clarification or additional strategy tips for their role using the MessageWorker.",
+            "If the user requests more information, use the FaissRAGWorker to gather additional details or strategies and provide them using the MessageWorker."
+        ]
+    },
+    {
+        "task_name": "Offer strategies and advice on identifying and eliminating Werewolves",
+        "steps": [
+            "Ask the player about their current role in the game to tailor the advice appropriately.",
+            "Provide general strategies for identifying werewolves based on common behaviors and game dynamics, using MessageWorker to deliver the advice.",
+            "Encourage the player to observe specific behaviors or patterns in other players and ask if they need advice on any particular situation or player, using MessageWorker for interaction.",
+            "Offer role-specific strategies, such as using the Seer\u2019s ability effectively or leveraging the Witch\u2019s potions strategically, based on the player\u2019s role.",
+            "Invite the player to ask further questions or for clarification on specific strategies, ensuring ongoing engagement and support.",
+            "Conclude the session by summarizing key strategies discussed and encouraging the player to apply them in the game."
+        ]
+    },
+    {
+        "task_name": "Provide strategies and tactics for deceiving Villagers and eliminating them",
+        "steps": [
+            "Assess the current game state to understand the roles and positions of players, using deception as a key strategy to blend in with Villagers.",
+            "Engage with other players using plausible stories and alibis to build trust and deflect suspicion away from yourself.",
+            "Coordinate with fellow Werewolves discreetly to select strategic targets for elimination that will sow confusion among Villagers.",
+            "Monitor the responses of Villagers to identify key players like the Seer or Guardian, who could pose a threat to the Werewolves, and plan their elimination.",
+            "Adapt tactics based on the evolving game dynamics, continuously assessing which Villagers are most easily deceived and which pose the greatest threat."
+        ]
+    },
+    {
+        "task_name": "Guide the Seer on effectively using their powers to uncover Werewolves while staying hidden",
+        "steps": [
+            "Confirm the Seer's understanding of their role and the game's objective, emphasizing the importance of staying hidden.",
+            "Provide strategic advice on selecting which player to investigate, focusing on maximizing the benefit of the Seer's ability while minimizing the risk of exposure.",
+            "Assist the Seer in interpreting the results of their investigation and determining the best course of action for the upcoming day or night phase.",
+            "Offer guidance on maintaining their anonymity and collaborating with other players to effectively influence the game's outcome."
+        ]
+    },
+    {
+        "task_name": "Advise the Witch on when and how to use their potions for maximum impact",
+        "steps": [
+            "Initiate an interaction with the Witch to understand the current game situation, including who is suspected to be a werewolf and who might be in danger.",
+            "Advise on using the healing potion: If a critical player (like the Seer or Guardian) is targeted, recommend using the healing potion to save them.",
+            "Advise on using the poison potion: If there's a strong suspicion or evidence of a player being a werewolf, suggest using the poison potion on that player to eliminate them.",
+            "Discuss the potential outcomes: Explain the possible consequences of using or not using each potion, and how it could impact the game's outcome.",
+            "Finalize the decision: Confirm with the Witch if they wish to proceed with the advised actions or if they need further guidance."
+        ]
+    },
+    {
+        "task_name": "Guide the Guardian on selecting the best targets for protection each night",
+        "steps": [
+            "Gather information about the current game state, including known players' roles, recent events, and potential threats.",
+            "Provide strategic advice on potential protection targets based on the gathered information, considering player behavior and past actions.",
+            "Ask the Guardian for their preferred protection target and any additional considerations they might have.",
+            "Confirm the Guardian's decision on the protection target and offer further assistance or adjustments if needed."
+        ]
+    },
+    {
+        "task_name": "Advise the Hunter on choosing the right targets when they are eliminated",
+        "steps": [
+            "Explain the situation to the Hunter, acknowledging their impending elimination and the opportunity to take down a player.",
+            "Ask the Hunter for any suspicions or insights they have about other players' roles, especially focusing on potential werewolves.",
+            "Provide strategic advice based on typical game dynamics, emphasizing the importance of targeting a player with a high likelihood of being a werewolf.",
+            "Suggest considering any known alliances or information shared by the Seer or other trusted roles that can guide their decision.",
+            "Confirm the Hunter's choice and encourage them to make a decisive move that will benefit their team."
+        ]
+    },
+    {
+        "task_name": "Provide strategies for Solitary roles like the White Wolf, Mercenary, and Sick Rat to achieve their unique objectives",
+        "steps": [
+            "Identify User's Role and Objectives by asking which role they are playing.",
+            "Provide General Strategy Overview for the selected role, including objectives and abilities.",
+            "Offer Role-Specific Tips and Tactics tailored to the user's selected role.",
+            "Ask if the user is facing any specific challenges or situations that need more detailed advice.",
+            "Provide Customized Solutions or Advice based on the user's response to address specific challenges.",
+            "Check for Additional Assistance to see if the user needs further help or clarification.",
+            "Conclude the Interaction with a brief recap or encouragement once the user is satisfied."
+        ]
+    }
+]

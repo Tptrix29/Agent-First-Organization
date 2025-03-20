@@ -8,7 +8,7 @@
                     "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Hello! I'm your Customer Service Assistant. How can I assist you with your inquiries today? Whether you need information about our products, services, or policies, or require help resolving an issue, I'm here to help!",
+                    "value": "Hello! I'm your Customer Service Assistant. I'm here to provide you with information about our products, services, and policies, and assist you with any issues or transactions you may need help with. How can I assist you today?",
                     "task": "start message",
                     "directed": false
                 },
@@ -20,12 +20,12 @@
             "1",
             {
                 "resource": {
-                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
-                    "name": "MessageWorker"
+                    "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
+                    "name": "FaissRAGWorker"
                 },
                 "attribute": {
-                    "value": "Can you please provide more details about the robot you are interested in, such as the model name or specific features you are curious about?",
-                    "task": "Use MessageWorker to ask the user for specific details about the robot they are interested in, such as model name or features they are curious about.",
+                    "value": "Here are the detailed specifications for the product you are interested in.",
+                    "task": "Provide detailed product information and specifications",
                     "directed": false
                 },
                 "limit": 1
@@ -35,12 +35,12 @@
             "2",
             {
                 "resource": {
-                    "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
-                    "name": "FaissRAGWorker"
+                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
+                    "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "",
-                    "task": "Use FaissRAGWorker to retrieve detailed information about the specified robot from the company's internal documents, focusing on features and capabilities.",
+                    "value": "Are you interested in purchasing or renting a robot today?",
+                    "task": "Use MessageWorker to ask the user whether they are interested in purchasing or renting a robot.",
                     "directed": false
                 },
                 "limit": 1
@@ -50,12 +50,12 @@
             "3",
             {
                 "resource": {
-                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
-                    "name": "MessageWorker"
+                    "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
+                    "name": "FaissRAGWorker"
                 },
                 "attribute": {
-                    "value": "Here is the information on the robot you inquired about: [retrieved information].",
-                    "task": "Use MessageWorker to deliver the retrieved information to the user, ensuring that it addresses their specific inquiry about the robot.",
+                    "value": "Here is the information on our available robots, pricing, and terms for purchasing or renting.",
+                    "task": "Use FaissRAGWorker to provide information based on the company's internal documentation regarding the purchasing or renting process, including available robots, pricing, and terms.",
                     "directed": false
                 },
                 "limit": 1
@@ -69,8 +69,8 @@
                     "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Do you need any further information or have additional questions about the robot?",
-                    "task": "Use MessageWorker to ask if the user needs further information or has additional questions about the robot.",
+                    "value": "Does this information meet your expectations, or do you have any further questions?",
+                    "task": "Use MessageWorker to confirm if the provided information meets the user's expectations or if they have further questions.",
                     "directed": false
                 },
                 "limit": 1
@@ -80,12 +80,12 @@
             "5",
             {
                 "resource": {
-                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
-                    "name": "MessageWorker"
+                    "id": "9c15af81-04b3-443e-be04-a3522124b905",
+                    "name": "SearchWorker"
                 },
                 "attribute": {
-                    "value": "Thank you for your inquiry! If you need any more assistance, feel free to ask.",
-                    "task": "If the user has additional questions, repeat steps 2 and 3. Otherwise, use MessageWorker to thank the user for their inquiry and offer further assistance if needed.",
+                    "value": "Let me look up some additional information for you.",
+                    "task": "If the user has further questions, use SearchWorker to provide additional information from real-time online search results if needed.",
                     "directed": false
                 },
                 "limit": 1
@@ -95,12 +95,12 @@
             "6",
             {
                 "resource": {
-                    "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
-                    "name": "FaissRAGWorker"
+                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
+                    "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Here are the available robots along with options for purchasing or renting according to our internal documentation.",
-                    "task": "Provide information about available robots, including options for purchasing or renting, using information from internal documentation.",
+                    "value": "I can assist you with completing the transaction or provide you with contact details for further assistance.",
+                    "task": "Use MessageWorker to assist the user in completing the transaction, such as guiding them through the checkout process or providing contact details for further assistance.",
                     "directed": false
                 },
                 "limit": 1
@@ -114,8 +114,8 @@
                     "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Are you interested in purchasing or renting a specific robot from the list provided?",
-                    "task": "Inquire if the user is interested in purchasing or renting a specific robot.",
+                    "value": "Hello! How can I assist you today? Could you please describe the technical issue you are facing?",
+                    "task": "Greet the user and inquire about the specific technical issue or area where they need support.",
                     "directed": false
                 },
                 "limit": 1
@@ -129,8 +129,8 @@
                     "name": "FaissRAGWorker"
                 },
                 "attribute": {
-                    "value": "You have selected [Robot Name]. Here are the details: Price, rental terms, and relevant policies.",
-                    "task": "Confirm the user's choice and provide detailed information about the selected robot, including price, rental terms, and any other relevant policies.",
+                    "value": "",
+                    "task": "Use the FaissRAGWorker to search the company's internal documentation for relevant troubleshooting steps or solutions based on the user's description of the issue.",
                     "directed": false
                 },
                 "limit": 1
@@ -144,8 +144,8 @@
                     "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Do you have any questions about the transaction process or need guidance?",
-                    "task": "Assist the user with the transaction process by answering any questions and providing guidance.",
+                    "value": "Based on the information you provided, here are some steps you can try to resolve the issue...",
+                    "task": "Deliver the relevant troubleshooting steps or solutions to the user using the MessageWorker.",
                     "directed": false
                 },
                 "limit": 1
@@ -159,8 +159,8 @@
                     "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Has your transaction been completed successfully? Are you satisfied with the process?",
-                    "task": "Ensure the transaction is completed successfully and confirm the user's satisfaction with the process.",
+                    "value": "Did the solution I provided help resolve your issue, or do you need further assistance?",
+                    "task": "Ask the user if the provided solution resolved their issue or if they need further assistance.",
                     "directed": false
                 },
                 "limit": 1
@@ -170,12 +170,12 @@
             "11",
             {
                 "resource": {
-                    "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
-                    "name": "FaissRAGWorker"
+                    "id": "default_worker",
+                    "name": "DefaultWorker"
                 },
                 "attribute": {
-                    "value": "Based on our internal documentation, the estimated delivery time for Model A is 3-5 business days, while Model B takes 5-7 business days.",
-                    "task": "Provide estimated delivery times for different robot models",
+                    "value": "",
+                    "task": "If the issue is not resolved, use the DefaultWorker to decide the next steps based on past chat records and provide additional assistance or escalate the issue if needed.",
                     "directed": false
                 },
                 "limit": 1
@@ -185,12 +185,12 @@
             "12",
             {
                 "resource": {
-                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
-                    "name": "MessageWorker"
+                    "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
+                    "name": "FaissRAGWorker"
                 },
                 "attribute": {
-                    "value": "Could you please describe the specific issue you are experiencing with your robot?",
-                    "task": "Inquire about the specific issue the user is experiencing with their robot.",
+                    "value": "",
+                    "task": "Use FaissRAGWorker to retrieve information from the company's internal documentation regarding delivery timelines and order tracking.",
                     "directed": false
                 },
                 "limit": 1
@@ -200,12 +200,12 @@
             "13",
             {
                 "resource": {
-                    "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
-                    "name": "FaissRAGWorker"
+                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
+                    "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "",
-                    "task": "Use the FaissRAGWorker to retrieve relevant troubleshooting information from the company's internal documentation based on the user's issue.",
+                    "value": "Here is the information about the delivery timelines and order tracking.",
+                    "task": "Use MessageWorker to deliver the retrieved information to the user.",
                     "directed": false
                 },
                 "limit": 1
@@ -219,8 +219,8 @@
                     "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Here are the steps you can follow to resolve the issue: [Step-by-step instructions].",
-                    "task": "Provide the user with step-by-step instructions to resolve the issue using the MessageWorker.",
+                    "value": "Do you have any further questions or need additional information?",
+                    "task": "Ask the user if they have any further questions or need additional information.",
                     "directed": false
                 },
                 "limit": 1
@@ -230,12 +230,12 @@
             "15",
             {
                 "resource": {
-                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
-                    "name": "MessageWorker"
+                    "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
+                    "name": "FaissRAGWorker"
                 },
                 "attribute": {
-                    "value": "Did the solution resolve your issue, or do you need further assistance?",
-                    "task": "Ask the user if the provided solution resolved their issue or if they need further assistance.",
+                    "value": "",
+                    "task": "If the user has further questions, repeat steps 1 and 2 to provide additional information or clarification.",
                     "directed": false
                 },
                 "limit": 1
@@ -249,8 +249,8 @@
                     "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "If the issue persists, I can offer additional troubleshooting options or connect you with one of our human representatives for further assistance.",
-                    "task": "If the issue is not resolved, offer additional troubleshooting options or escalate the issue to a human representative.",
+                    "value": "Has your query been resolved, or do you need guidance on the next steps?",
+                    "task": "Confirm with the user that their query has been resolved or provide guidance on next steps if needed.",
                     "directed": false
                 },
                 "limit": 1
@@ -260,12 +260,12 @@
             "17",
             {
                 "resource": {
-                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
-                    "name": "MessageWorker"
+                    "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
+                    "name": "FaissRAGWorker"
                 },
                 "attribute": {
-                    "value": "Hello! How can I assist you today? Are you looking for help with a specific robot or setup process?",
-                    "task": "Greet the user and inquire about the specific robot or setup process they need assistance with to gather initial context.",
+                    "value": "Here are the details of Richtech Robotics' policies and terms. If you have any specific questions, feel free to ask!",
+                    "task": "Provide information on Richtech Robotics' policies and terms",
                     "directed": false
                 },
                 "limit": 1
@@ -275,12 +275,12 @@
             "18",
             {
                 "resource": {
-                    "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
-                    "name": "FaissRAGWorker"
+                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
+                    "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "",
-                    "task": "Use the FaissRAGWorker to retrieve relevant setup and implementation information from the company's internal documentation based on the user's context and provide this information to the user.",
+                    "value": "Are you interested in a demo for our robotic solutions? Please let us know the type of solution you're interested in and your preferred dates and times.",
+                    "task": "Inquire about the user's interest in a demo for robotic solutions and gather necessary details such as type of solution, preferred dates, and times.",
                     "directed": false
                 },
                 "limit": 1
@@ -290,12 +290,12 @@
             "19",
             {
                 "resource": {
-                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
-                    "name": "MessageWorker"
+                    "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
+                    "name": "FaissRAGWorker"
                 },
                 "attribute": {
-                    "value": "Based on your request, here is the information on setting up the robot you mentioned.",
-                    "task": "Deliver the retrieved information to the user using the MessageWorker, ensuring clarity and relevance to the user's query.",
+                    "value": "Here are the details on our available robotic solutions and demos. Please review them to find the ones that suit your needs.",
+                    "task": "Provide detailed information on available robotic solutions and demos using the FaissRAGWorker.",
                     "directed": false
                 },
                 "limit": 1
@@ -309,8 +309,8 @@
                     "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Do you need any further clarification or have additional questions about the setup process?",
-                    "task": "Ask the user if they need further clarification or have additional questions regarding the setup process.",
+                    "value": "Could you please confirm your preferences and details for the demo request?",
+                    "task": "Confirm the user's preferences and details for the demo request.",
                     "directed": false
                 },
                 "limit": 1
@@ -320,12 +320,12 @@
             "21",
             {
                 "resource": {
-                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
-                    "name": "MessageWorker"
+                    "id": "default_worker",
+                    "name": "DefaultWorker"
                 },
                 "attribute": {
-                    "value": "If you have more questions, feel free to ask. Otherwise, I hope you are satisfied with the information provided. Let me know if there's anything else I can assist you with!",
-                    "task": "If the user has additional questions, repeat steps 2 and 3 to provide further assistance. Otherwise, confirm that the user is satisfied with the information provided and offer any final assistance needed.",
+                    "value": "",
+                    "task": "Schedule the demo using the DefaultWorker based on the user's preferences.",
                     "directed": false
                 },
                 "limit": 1
@@ -335,12 +335,12 @@
             "22",
             {
                 "resource": {
-                    "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
-                    "name": "FaissRAGWorker"
+                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
+                    "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Here are the details of our company policies, terms, and conditions. Please let me know if you have any questions.",
-                    "task": "Provide information on company policies, terms, and conditions",
+                    "value": "Your demo has been scheduled. Here are the details: [insert details]. Please let us know if you need any further assistance.",
+                    "task": "Confirm the scheduled demo details with the user using the MessageWorker and provide any additional instructions.",
                     "directed": false
                 },
                 "limit": 1
@@ -350,12 +350,12 @@
             "23",
             {
                 "resource": {
-                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
-                    "name": "MessageWorker"
+                    "id": "default_worker",
+                    "name": "DefaultWorker"
                 },
                 "attribute": {
-                    "value": "Hello! How can I assist you today? Could you please tell me the specific robot model or issue you're inquiring about?",
-                    "task": "Greet the user and ask for the specific robot model or issue they are inquiring about to tailor the assistance.",
+                    "value": "Could you please specify which robot or type of robots you need maintenance and care guidance for?",
+                    "task": "Inquire about the specific robot or type of robots the user needs maintenance and care guidance for.",
                     "directed": false
                 },
                 "limit": 1
@@ -370,7 +370,7 @@
                 },
                 "attribute": {
                     "value": "",
-                    "task": "Use FaissRAGWorker to retrieve information from internal documentation about maintenance schedules, common issues, and service options for the specified robot model.",
+                    "task": "Utilize the FaissRAGWorker to access internal documentation and gather detailed information on maintenance and care for the specified robot.",
                     "directed": false
                 },
                 "limit": 1
@@ -384,8 +384,8 @@
                     "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Based on the information I found, here are the recommended maintenance schedules and potential solutions for the issues you've described.",
-                    "task": "Present the user with the information found, including recommended maintenance schedules and potential solutions for any issues described.",
+                    "value": "Here is the maintenance and care information for your specified robot: [detailed information].",
+                    "task": "Present the gathered information to the user using the MessageWorker, ensuring clarity and completeness.",
                     "directed": false
                 },
                 "limit": 1
@@ -399,8 +399,8 @@
                     "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Would you like assistance in scheduling a maintenance service, or do you have any further questions about the information provided?",
-                    "task": "Inquire if the user needs assistance in scheduling a maintenance service or if they have further questions regarding the information provided.",
+                    "value": "Do you need any further information or clarification on any specific aspect of maintenance and care?",
+                    "task": "Ask if the user needs further information or clarification on any specific aspect of maintenance and care.",
                     "directed": false
                 },
                 "limit": 1
@@ -410,12 +410,12 @@
             "27",
             {
                 "resource": {
-                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
-                    "name": "MessageWorker"
+                    "id": null,
+                    "name": "FaissRAGWorker, MessageWorker"
                 },
                 "attribute": {
-                    "value": "Here are the available dates and times for scheduling your maintenance. Please let me know which one works best for you, and I'll confirm your appointment.",
-                    "task": "If the user needs to schedule maintenance, guide them through the process by providing available dates and times, and confirm their appointment.",
+                    "value": "Let me find more details for you. I'll get back with the information shortly.",
+                    "task": "If the user has additional questions or needs more details, repeat the process using FaissRAGWorker to find the answers and provide them via MessageWorker.",
                     "directed": false
                 },
                 "limit": 1
@@ -429,23 +429,8 @@
                     "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Your maintenance is scheduled for [Date] at [Time]. If you have any further inquiries, feel free to ask.",
-                    "task": "Confirm the details of the scheduled maintenance or provide additional assistance if the user has further inquiries.",
-                    "directed": false
-                },
-                "limit": 1
-            }
-        ],
-        [
-            "29",
-            {
-                "resource": {
-                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
-                    "name": "MessageWorker"
-                },
-                "attribute": {
-                    "value": "Thank you for using our service! If you need any more assistance, don't hesitate to reach out. Have a great day!",
-                    "task": "Thank the user for using the service and offer further assistance if needed, ensuring they have all the information required for the next steps.",
+                    "value": "We have some exciting promotions and special offers available today. Would you like to hear more about them?",
+                    "task": "Inform about current promotions and special offers",
                     "directed": false
                 },
                 "limit": 1
@@ -467,13 +452,13 @@
             }
         ],
         [
-            "1",
+            "0",
             "2",
             {
-                "intent": "None",
+                "intent": "User wants to purchase or rent a robot",
                 "attribute": {
                     "weight": 1,
-                    "pred": false,
+                    "pred": true,
                     "definition": "",
                     "sample_utterances": []
                 }
@@ -519,26 +504,26 @@
             }
         ],
         [
-            "0",
+            "5",
             "6",
             {
-                "intent": "User seeks assistance with product transactions",
+                "intent": "None",
                 "attribute": {
                     "weight": 1,
-                    "pred": true,
+                    "pred": false,
                     "definition": "",
                     "sample_utterances": []
                 }
             }
         ],
         [
-            "6",
+            "0",
             "7",
             {
-                "intent": "None",
+                "intent": "User needs support for a technical issue",
                 "attribute": {
                     "weight": 1,
-                    "pred": false,
+                    "pred": true,
                     "definition": "",
                     "sample_utterances": []
                 }
@@ -584,13 +569,13 @@
             }
         ],
         [
-            "0",
+            "10",
             "11",
             {
-                "intent": "User requires information on delivery timelines",
+                "intent": "None",
                 "attribute": {
                     "weight": 1,
-                    "pred": true,
+                    "pred": false,
                     "definition": "",
                     "sample_utterances": []
                 }
@@ -600,7 +585,7 @@
             "0",
             "12",
             {
-                "intent": "User wants to resolve an issue with a product",
+                "intent": "User inquires about delivery timelines",
                 "attribute": {
                     "weight": 1,
                     "pred": true,
@@ -665,7 +650,7 @@
             "0",
             "17",
             {
-                "intent": "User asks for support on product implementation",
+                "intent": "User wants to learn about company policies",
                 "attribute": {
                     "weight": 1,
                     "pred": true,
@@ -675,13 +660,13 @@
             }
         ],
         [
-            "17",
+            "0",
             "18",
             {
-                "intent": "None",
+                "intent": "User seeks assistance for setting up a demo",
                 "attribute": {
                     "weight": 1,
-                    "pred": false,
+                    "pred": true,
                     "definition": "",
                     "sample_utterances": []
                 }
@@ -727,13 +712,13 @@
             }
         ],
         [
-            "0",
+            "21",
             "22",
             {
-                "intent": "User seeks information on company policies",
+                "intent": "None",
                 "attribute": {
                     "weight": 1,
-                    "pred": true,
+                    "pred": false,
                     "definition": "",
                     "sample_utterances": []
                 }
@@ -743,7 +728,7 @@
             "0",
             "23",
             {
-                "intent": "User requires support for ongoing maintenance",
+                "intent": "User asks about product maintenance",
                 "attribute": {
                     "weight": 1,
                     "pred": true,
@@ -805,26 +790,13 @@
             }
         ],
         [
-            "27",
+            "0",
             "28",
             {
-                "intent": "None",
+                "intent": "User wants to know about special offers or promotions",
                 "attribute": {
                     "weight": 1,
-                    "pred": false,
-                    "definition": "",
-                    "sample_utterances": []
-                }
-            }
-        ],
-        [
-            "28",
-            "29",
-            {
-                "intent": "None",
-                "attribute": {
-                    "weight": 1,
-                    "pred": false,
+                    "pred": true,
                     "definition": "",
                     "sample_utterances": []
                 }
